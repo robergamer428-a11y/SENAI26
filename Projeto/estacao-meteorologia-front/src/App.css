@@ -1,0 +1,119 @@
+/* Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Fundo */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg, #4facfe, #00f2fe);
+    height: 100vh;
+}
+
+/* Centralização */
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+}
+
+/* Card */
+.card {
+    display: flex;
+    width: 800px;
+    max-width: 90%;
+    border-radius: 16px;
+    overflow: hidden;
+    background: #fff;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+}
+
+/* Imagem */
+.card img {
+    width: 50%;
+    height: auto;
+    object-fit: cover;
+}
+
+/* Formulário */
+.formulario {
+    width: 50%;
+    padding: 50px 40px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+/* Título */
+.formulario h2 {
+    text-align: center;
+    margin-bottom: 25px;
+    color: #333;
+    font-weight: 600;
+}
+
+/* Inputs */
+.input {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 18px;
+    border-radius: 10px;
+    border: 1px solid #ccc;
+    transition: 0.3s;
+    font-size: 14px;
+}
+
+.input:focus {
+    border-color: #4facfe;
+    box-shadow: 0 0 8px rgba(79, 172, 254, 0.4);
+    outline: none;
+}
+
+/* Botão */
+.botao {
+    padding: 12px;
+    border-radius: 10px;
+    border: none;
+    background: linear-gradient(135deg, #4facfe, #00c6ff);
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.botao:hover {
+    transform: scale(1.05);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+}
+
+/* Link */
+.formulario a {
+    margin-top: 15px;
+    text-align: center;
+    font-size: 14px;
+    color: #4facfe;
+    text-decoration: none;
+}
+
+.formulario a:hover {
+    text-decoration: underline;
+}
+
+/* Responsivo */
+@media (max-width: 768px) {
+    .card {
+        flex-direction: column;
+    }
+
+    .card img {
+        width: 100%;
+        height: 200px;
+    }
+
+    .formulario {
+        width: 100%;
+    }
+}

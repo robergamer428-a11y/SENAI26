@@ -1,0 +1,323 @@
+/* galeria.css - Estilo Zen para Galeria de Produtos (classes exclusivas) */
+
+/* ============================================ */
+/* FONTES */
+/* ============================================ */
+
+@font-face {
+  font-family: 'Bricolage Grotesque';
+  font-style: normal;
+  font-display: swap;
+  font-weight: 600;
+  src: url('https://fonts.gstatic.com/s/bricolagegrotesque/v1/3y9U6as8bXq-nCBoH8K3pXqFfE5D5k9c.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: 'Junicode';
+  src: url('/Public/FONTs/junicode.regular.ttf') format('truetype');
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Junicode-Italic';
+  src: url('/Public/FONTs/junicode.bold-italic.ttf') format('truetype');
+  font-display: swap;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --zen-paper: #f2f0e3;
+  --zen-dark: #2e2e2e;
+  --zen-muted: rgba(0, 0, 0, 0.05);
+  --zen-subtle: rgba(0, 0, 0, 0.05);
+  --zen-coral: #f76f53;
+}
+
+[data-theme="dark"] {
+  --zen-paper: #0a0f1a;
+  --zen-dark: #e6e9f0;
+  --zen-muted: rgba(255, 255, 255, 0.05);
+  --zen-subtle: rgba(255, 255, 255, 0.08);
+  --zen-coral: #ff6b4a;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Bricolage Grotesque', sans-serif;
+  background: var(--zen-paper);
+  color: var(--zen-dark);
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+
+/* ============================================ */
+/* WRAPPER PRINCIPAL */
+/* ============================================ */
+
+.galeria-wrapper {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem;
+}
+
+/* ============================================ */
+/* BOTÃO VOLTAR */
+/* ============================================ */
+
+.galeria-btn-voltar {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: var(--zen-coral);
+  text-decoration: none;
+  margin-bottom: 2rem;
+  font-weight: 500;
+  transition: all 0.2s ease;
+}
+
+.galeria-btn-voltar:hover {
+  transform: translateX(-4px);
+  color: var(--zen-dark);
+}
+
+/* ============================================ */
+/* TÍTULO PRINCIPAL */
+/* ============================================ */
+
+.galeria-titulo-principal {
+  text-align: center;
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: 2rem;
+  color: var(--zen-coral);
+  letter-spacing: -0.02em;
+  position: relative;
+  display: inline-block;
+  width: 100%;
+}
+
+.galeria-titulo-principal::after {
+  content: '';
+  position: absolute;
+  bottom: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80px;
+  height: 3px;
+  background: var(--zen-coral);
+  border-radius: 3px;
+}
+
+@media (max-width: 768px) {
+  .galeria-titulo-principal {
+    font-size: 1.75rem;
+    margin-bottom: 1.5rem;
+  }
+  
+  .galeria-titulo-principal::after {
+    width: 60px;
+  }
+}
+
+/* ============================================ */
+/* CONTAINER DOS CARDS */
+/* ============================================ */
+
+.galeria-container {
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 2rem;
+}
+
+@media (max-width: 768px) {
+  .galeria-container {
+    gap: 1.5rem;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  }
+}
+
+@media (max-width: 480px) {
+  .galeria-container {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ============================================ */
+/* CARDS DA GALERIA */
+/* ============================================ */
+
+.galeria-card {
+  background: var(--zen-muted);
+  border-radius: 1rem;
+  overflow: hidden;
+  transition: all 0.3s ease;
+  border: 1px solid var(--zen-subtle);
+  display: flex;
+  flex-direction: column;
+}
+
+.galeria-card:hover {
+  transform: translateY(-6px);
+  border-color: var(--zen-coral);
+  background: var(--zen-subtle);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+}
+
+/* Imagem do card */
+.galeria-card img {
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
+  transition: transform 0.4s ease;
+}
+
+.galeria-card:hover img {
+  transform: scale(1.05);
+}
+
+/* Título do card */
+.galeria-card-titulo {
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin: 1rem 1rem 0.5rem;
+  color: var(--zen-coral);
+}
+
+/* Descrição do card */
+.galeria-card-descricao {
+  color: var(--zen-dark);
+  opacity: 0.7;
+  line-height: 1.5;
+  font-size: 0.875rem;
+  margin: 0 1rem 1rem;
+  flex-grow: 1;
+}
+
+/* Link do card */
+.galeria-card-link {
+  display: inline-block;
+  margin: 0 1rem 1.5rem;
+  padding: 0.625rem 1.25rem;
+  background: transparent;
+  border: 1px solid var(--zen-coral);
+  color: var(--zen-coral);
+  text-decoration: none;
+  border-radius: 2rem;
+  font-weight: 500;
+  font-size: 0.875rem;
+  transition: all 0.2s ease;
+  text-align: center;
+  align-self: flex-start;
+}
+
+.galeria-card-link:hover {
+  background: var(--zen-coral);
+  color: var(--zen-paper);
+  transform: translateX(4px);
+}
+
+/* ============================================ */
+/* RESPONSIVIDADE ADICIONAL */
+/* ============================================ */
+
+@media (max-width: 768px) {
+  .galeria-wrapper {
+    padding: 1rem;
+  }
+  
+  .galeria-card img {
+    height: 200px;
+  }
+  
+  .galeria-card-titulo {
+    font-size: 1.125rem;
+    margin: 0.875rem 0.875rem 0.375rem;
+  }
+  
+  .galeria-card-descricao {
+    font-size: 0.8125rem;
+    margin: 0 0.875rem 0.875rem;
+  }
+  
+  .galeria-card-link {
+    margin: 0 0.875rem 1.25rem;
+    padding: 0.5rem 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .galeria-card img {
+    height: 180px;
+  }
+}
+
+/* ============================================ */
+/* ANIMAÇÃO DE ENTRADA */
+/* ============================================ */
+
+@keyframes galeriaFadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.galeria-card {
+  animation: galeriaFadeInUp 0.5s ease-out forwards;
+  opacity: 0;
+}
+
+.galeria-card:nth-child(1) { animation-delay: 0.05s; }
+.galeria-card:nth-child(2) { animation-delay: 0.1s; }
+.galeria-card:nth-child(3) { animation-delay: 0.15s; }
+.galeria-card:nth-child(4) { animation-delay: 0.2s; }
+.galeria-card:nth-child(5) { animation-delay: 0.25s; }
+.galeria-card:nth-child(6) { animation-delay: 0.3s; }
+.galeria-card:nth-child(7) { animation-delay: 0.35s; }
+.galeria-card:nth-child(8) { animation-delay: 0.4s; }
+.galeria-card:nth-child(9) { animation-delay: 0.45s; }
+
+/* ============================================ */
+/* SCROLLBAR */
+/* ============================================ */
+
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--zen-muted);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--zen-coral);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--zen-coral);
+  opacity: 0.8;
+}
+
+/* ============================================ */
+/* SELEÇÃO DE TEXTO */
+/* ============================================ */
+
+::selection {
+  background: var(--zen-coral);
+  color: var(--zen-paper);
+}

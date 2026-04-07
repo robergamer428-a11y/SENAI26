@@ -1,0 +1,410 @@
+/* sobre.css - Estilo Zen para página Sobre (classes exclusivas) */
+
+/* ============================================ */
+/* FONTES */
+/* ============================================ */
+
+@font-face {
+  font-family: 'Bricolage Grotesque';
+  font-style: normal;
+  font-display: swap;
+  font-weight: 600;
+  src: url('https://fonts.gstatic.com/s/bricolagegrotesque/v1/3y9U6as8bXq-nCBoH8K3pXqFfE5D5k9c.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: 'Junicode';
+  src: url('/Public/FONTs/junicode.regular.ttf') format('truetype');
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Junicode-Italic';
+  src: url('/Public/FONTs/junicode.bold-italic.ttf') format('truetype');
+  font-display: swap;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --zen-paper: #f2f0e3;
+  --zen-dark: #2e2e2e;
+  --zen-muted: rgba(0, 0, 0, 0.05);
+  --zen-subtle: rgba(0, 0, 0, 0.05);
+  --zen-coral: #f76f53;
+}
+
+[data-theme="dark"] {
+  --zen-paper: #0a0f1a;
+  --zen-dark: #e6e9f0;
+  --zen-muted: rgba(255, 255, 255, 0.05);
+  --zen-subtle: rgba(255, 255, 255, 0.08);
+  --zen-coral: #ff6b4a;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Bricolage Grotesque', sans-serif;
+  background: var(--zen-paper);
+  color: var(--zen-dark);
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+
+/* ============================================ */
+/* WRAPPER PRINCIPAL */
+/* ============================================ */
+
+.sobre-wrapper {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem;
+}
+
+@media (max-width: 768px) {
+  .sobre-wrapper {
+    padding: 1rem;
+  }
+}
+
+/* ============================================ */
+/* BOTÃO VOLTAR */
+/* ============================================ */
+
+.sobre-btn-voltar {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: var(--zen-coral);
+  text-decoration: none;
+  margin-bottom: 2rem;
+  font-weight: 500;
+  transition: all 0.2s ease;
+}
+
+.sobre-btn-voltar:hover {
+  transform: translateX(-4px);
+  color: var(--zen-dark);
+}
+
+/* ============================================ */
+/* CONTAINER PRINCIPAL */
+/* ============================================ */
+
+.sobre-container {
+  background: var(--zen-muted);
+  border-radius: 1.5rem;
+  padding: 2.5rem;
+  border: 1px solid var(--zen-subtle);
+  animation: sobreFadeIn 0.5s ease-out;
+}
+
+@media (max-width: 768px) {
+  .sobre-container {
+    padding: 1.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .sobre-container {
+    padding: 1.25rem;
+  }
+}
+
+/* ============================================ */
+/* TÍTULO */
+/* ============================================ */
+
+.sobre-titulo {
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--zen-coral);
+  margin-bottom: 1.5rem;
+  position: relative;
+  display: inline-block;
+  letter-spacing: -0.02em;
+}
+
+.sobre-titulo::after {
+  content: '';
+  position: absolute;
+  bottom: -8px;
+  left: 0;
+  width: 60px;
+  height: 3px;
+  background: var(--zen-coral);
+  border-radius: 2px;
+}
+
+@media (max-width: 768px) {
+  .sobre-titulo {
+    font-size: 1.75rem;
+  }
+  
+  .sobre-titulo::after {
+    width: 50px;
+  }
+}
+
+@media (max-width: 480px) {
+  .sobre-titulo {
+    font-size: 1.5rem;
+  }
+  
+  .sobre-titulo::after {
+    width: 40px;
+  }
+}
+
+/* ============================================ */
+/* CONTEÚDO (PARÁGRAFOS) */
+/* ============================================ */
+
+.sobre-conteudo {
+  margin-bottom: 2rem;
+}
+
+.sobre-texto {
+  font-size: 1rem;
+  line-height: 1.8;
+  color: var(--zen-dark);
+  margin-bottom: 1.5rem;
+  text-align: justify;
+}
+
+.sobre-texto:first-of-type {
+  font-size: 1.05rem;
+  font-weight: 500;
+  color: var(--zen-coral);
+  opacity: 0.9;
+}
+
+@media (max-width: 768px) {
+  .sobre-texto {
+    font-size: 0.9375rem;
+    line-height: 1.7;
+    margin-bottom: 1.25rem;
+  }
+  
+  .sobre-texto:first-of-type {
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .sobre-texto {
+    font-size: 0.875rem;
+  }
+}
+
+/* ============================================ */
+/* SEÇÃO DE VALORES */
+/* ============================================ */
+
+.sobre-valores {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2rem;
+  margin: 2.5rem 0;
+}
+
+.sobre-valor-item {
+  background: var(--zen-muted);
+  padding: 1.5rem;
+  border-radius: 1rem;
+  text-align: center;
+  transition: all 0.3s ease;
+  border: 1px solid var(--zen-subtle);
+}
+
+.sobre-valor-item:hover {
+  transform: translateY(-5px);
+  border-color: var(--zen-coral);
+  background: var(--zen-subtle);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+}
+
+.sobre-valor-icone {
+  font-size: 2.5rem;
+  display: block;
+  margin-bottom: 1rem;
+}
+
+.sobre-valor-titulo {
+  font-size: 1.125rem;
+  color: var(--zen-coral);
+  margin-bottom: 0.5rem;
+  font-weight: 600;
+}
+
+.sobre-valor-texto {
+  font-size: 0.875rem;
+  color: var(--zen-dark);
+  opacity: 0.7;
+  margin: 0;
+  text-align: center;
+}
+
+@media (max-width: 768px) {
+  .sobre-valores {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+    margin: 2rem 0;
+  }
+  
+  .sobre-valor-item {
+    padding: 1.25rem;
+  }
+}
+
+/* ============================================ */
+/* CITAÇÃO */
+/* ============================================ */
+
+.sobre-citacao {
+  background: linear-gradient(135deg, var(--zen-muted) 0%, var(--zen-subtle) 100%);
+  border-left: 4px solid var(--zen-coral);
+  padding: 1.5rem 2rem;
+  margin: 2rem 0;
+  border-radius: 1rem;
+}
+
+.sobre-citacao-texto {
+  margin: 0;
+  font-size: 1rem;
+  color: var(--zen-dark);
+  opacity: 0.8;
+  text-align: left;
+  font-style: italic;
+}
+
+.sobre-citacao-autor {
+  margin-top: 0.75rem;
+  font-size: 0.875rem;
+  color: var(--zen-coral);
+  font-weight: 500;
+  font-style: normal;
+}
+
+@media (max-width: 768px) {
+  .sobre-citacao {
+    padding: 1.25rem;
+  }
+  
+  .sobre-citacao-texto {
+    font-size: 0.875rem;
+  }
+}
+
+/* ============================================ */
+/* SEÇÃO DE CONTATO */
+/* ============================================ */
+
+.sobre-contato {
+  background: var(--zen-muted);
+  border-radius: 1rem;
+  padding: 2rem;
+  margin-top: 2rem;
+  text-align: center;
+  border: 1px solid var(--zen-subtle);
+}
+
+.sobre-contato-titulo {
+  font-size: 1.25rem;
+  color: var(--zen-coral);
+  margin-bottom: 0.75rem;
+  font-weight: 600;
+}
+
+.sobre-contato-texto {
+  font-size: 0.9375rem;
+  color: var(--zen-dark);
+  opacity: 0.7;
+  margin-bottom: 1.5rem;
+}
+
+.sobre-contato-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: var(--zen-coral);
+  color: var(--zen-paper);
+  padding: 0.75rem 1.5rem;
+  border-radius: 2rem;
+  text-decoration: none;
+  font-weight: 600;
+  transition: all 0.2s ease;
+}
+
+.sobre-contato-btn:hover {
+  background: var(--zen-dark);
+  transform: translateY(-2px);
+}
+
+@media (max-width: 768px) {
+  .sobre-contato {
+    padding: 1.5rem;
+  }
+  
+  .sobre-contato-titulo {
+    font-size: 1.125rem;
+  }
+  
+  .sobre-contato-texto {
+    font-size: 0.875rem;
+  }
+}
+
+/* ============================================ */
+/* ANIMAÇÃO */
+/* ============================================ */
+
+@keyframes sobreFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ============================================ */
+/* SCROLLBAR */
+/* ============================================ */
+
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--zen-muted);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--zen-coral);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--zen-coral);
+  opacity: 0.8;
+}
+
+/* ============================================ */
+/* SELEÇÃO DE TEXTO */
+/* ============================================ */
+
+::selection {
+  background: var(--zen-coral);
+  color: var(--zen-paper);
+}
