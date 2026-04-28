@@ -1,0 +1,166 @@
+:root {
+  --bg-color: #000000;
+  --card-bg: #1b2226;
+  --text-main: #ffffff;
+  --text-sub: #rgba(255, 255, 255, 0.7);
+  --primary-blue: #70b5f9;
+  --border-color: #38434f;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  background-color: var(--bg-color);
+  color: var(--text-main);
+  font-family: -apple-system, system-ui, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+}
+
+/* Navbar */
+.navbar {
+  background-color: #1d2226;
+  height: 52px;
+  border-bottom: 1px solid var(--border-color);
+  display: flex;
+  justify-content: center;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.nav-content {
+  width: 100%;
+  max-width: 1128px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 16px;
+}
+
+.search-bar input {
+  background-color: #38434f;
+  border: none;
+  border-radius: 4px;
+  padding: 8px 12px;
+  color: white;
+}
+
+/* Layout Grid */
+.main-layout {
+  max-width: 1128px;
+  margin: 24px auto;
+  display: grid;
+  grid-template-columns: 1fr; /* Mobile default */
+  gap: 24px;
+  padding: 0 16px;
+}
+
+/* Cards Genericos */
+.card {
+  background-color: var(--card-bg);
+  border-radius: 10px;
+  border: 1px solid var(--border-color);
+  overflow: hidden;
+  margin-bottom: 12px;
+}
+
+.section-card { padding: 20px; }
+.section-card h2 { margin-bottom: 16px; font-size: 20px; }
+
+/* Hero Section */
+.banner {
+  height: 200px;
+  background: linear-gradient(90deg, #1d2226 0%, #38434f 100%);
+}
+
+.profile-info-wrapper {
+  padding: 0 24px 24px;
+  position: relative;
+}
+
+.profile-pic {
+  width: 152px;
+  height: 152px;
+  background-color: #555;
+  border-radius: 50%;
+  border: 4px solid var(--card-bg);
+  margin-top: -100px;
+  margin-bottom: 16px;
+}
+
+.profile-details {
+  display: flex;
+  justify-content: space-between;
+}
+
+.headline { font-size: 16px; margin: 4px 0; }
+.location, .connections { font-size: 14px; color: gray; margin-bottom: 8px; }
+.link { color: var(--primary-blue); cursor: pointer; font-weight: 600; }
+
+/* Botões */
+.actions { display: flex; gap: 8px; margin-top: 12px; }
+.btn-primary {
+  background-color: var(--primary-blue);
+  color: black;
+  border: none;
+  padding: 6px 16px;
+  border-radius: 20px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.btn-outline {
+  background: transparent;
+  color: var(--primary-blue);
+  border: 1px solid var(--primary-blue);
+  padding: 6px 16px;
+  border-radius: 20px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+/* Experiência (Timeline) */
+.timeline {
+  border-left: 2px solid var(--border-color);
+  margin-left: 10px;
+  padding-left: 20px;
+  margin-top: 15px;
+}
+
+.timeline-node {
+  position: relative;
+  margin-bottom: 20px;
+}
+
+.timeline-node::before {
+  content: "";
+  position: absolute;
+  left: -27px;
+  top: 5px;
+  width: 12px;
+  height: 12px;
+  background: #888;
+  border-radius: 50%;
+}
+
+/* Sidebar Itens */
+.sidebar-user {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 16px;
+  padding-top: 12px;
+}
+
+.user-pic {
+  width: 48px;
+  height: 48px;
+  background: #444;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+/* Responsividade: Telas maiores que 992px */
+@media (min-width: 992px) {
+  .main-layout {
+    grid-template-columns: 8fr 4fr; /* Coluna larga e Sidebar */
+  }
+}
